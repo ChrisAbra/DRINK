@@ -1,0 +1,26 @@
+@import 'my/style';
+
+.lobbyMember {
+    padding: 10px;
+    border-bottom: 1px solid aliceblue;
+    border-radius: 40px;
+    background: whitesmoke;
+    margin: 10px;
+    text-align: center;
+}
+
+.icons {
+    margin-top: -26px;
+    float: left;
+    margin-left: 5px;
+    width: 100%;
+    text-align: left;
+}
+.icons > div {
+    display: inline-block;
+}
+
+.remove {
+    float: right;
+    margin-right: 5px;
+}

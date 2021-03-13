@@ -1,15 +1,7 @@
 <template>
+    <div class="app" onalertmessage={handleAlertMessage}>
 
-        <div if:true={showHomeScreen} class="center fade-in-slow">
-            <img class="banner-image" src="./resources/header-image.jpg" />
-            <h1>
-                DRINK!
-            </h1>
-
-            <my-room-picker onjoin={showRoomSelector} oncreate={createRoom}></my-room-picker>
-        </div>
-
-        <div if:false={showHomeScreen} class="fade-in">
+        <div if:false={showHomeScreen} class="header fade-in">
             <div class="page-icon">
                 <img src="./resources/header-image.jpg" />
             </div>
@@ -19,23 +11,59 @@
                 </h1>
             </div>
             <br>
+        </div>
+
+
+
+        <div class="content">
+            <div if:true={showHomeScreen} class="center fade-in-slow">
+                <h1>
+                    DRINK!
+                </h1>
+                <br>
+                <img class="banner-image" src="./resources/header-image.jpg" />
+
+                <my-room-picker onjoin={showRoomSelector} oncreate={createRoom}></my-room-picker>
+            </div>
+
 
             <div if:true={showRoomJoin} class="center room-join fade-in">
-                <my-room-code-input onjoinroom={handleRoomJoinEvent} error-message='Drunk already? Room codes are 4 characters long with no spaces'></my-room-code-input>
+                <my-room-code-input onjoinroom={handleRoomJoinEvent}
+                    error-message=':s Drunk already? Room codes are 4 characters long with no spaces'>
+                </my-room-code-input>
+            </div>
+
+
+
+            <my-lobby if:true={showLobby} room-code={currentRoomCode}></my-lobby>
+
+
+
+
+            <div if:true={show404} class="center fade-in-slow">
+                <img class="banner-image" src="./resources/technical-difficulties.png"
+                    style="transform: scalex(0.85);" />
+                <div>
+                    <h3>
+                        We still haven't found what you're looking for
+                    </h3>
+                </div>
+            </div>
+
+            <div if:true={showLoading} class="center fade-in-slow">
+                <my-loading-icon></my-loading-icon>
             </div>
 
         </div>
-        <div if:true={show404} class="center fade-in-slow">
-            <img class="banner-image" src="./resources/technical-difficulties.png" style="transform: scalex(0.85);"/>
-            <div>
-                <h3>
-                 We still haven't found what you're looking for
-                </h3>
-            </div>
+        <div if:true={showFooter} class="footer">
+
         </div>
 
-        <div if:true={showLoading} class="center fade-in-slow">
-            <my-loading-icon ></my-loading-icon>
+        <div if:true={alertMessage} class="alert info">
+            {alertMessage}
         </div>
+
+    </div>
+
 
 </template>

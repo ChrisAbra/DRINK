@@ -10,7 +10,7 @@ export default class Button extends LightningElement {
 	isClicked;
 
 	get styleClasses(){
-		return this.isClicked ? 'button clicked' : 'button';
+		return this.isClicked ? 'button clicked' : 'button clickable';
 	}
 
 

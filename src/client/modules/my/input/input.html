@@ -5,7 +5,7 @@
 		</div>
 		<input class={cssClasses} name="input" type="text" placeholder={placeholder} maxlength={maxLength} onchange={sendNewValue} onkeyup={checkForEnter}>
 		<div if:true={errorMessage} class="error fade-in fade-in-slow">
-			:( {errorMessage}
+			{errorMessage}
 
 		</div>
 

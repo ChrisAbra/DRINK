@@ -1,13 +1,14 @@
 {
-    "name": "drinking-games",
-    "description": "My amazing LWC app",
+    "name": "DRINK!",
+    "description": "A drinking games website",
     "version": "0.0.1",
     "author": "Chris Abraham",
-    "bugs": "https://github.com/Chris Abraham/drinking-games/issues",
+    "bugs": "https://github.com/chrisabra/DRINK/issues",
     "dependencies": {
         "compression": "^1.7.4",
         "express": "^4.17.1",
-        "helmet": "^4.4.1"
+        "helmet": "^4.4.1",
+        "package.json": "^2.0.1"
     },
     "devDependencies": {
         "eslint": "^7.22.0",
@@ -22,7 +23,7 @@
         "npm": ">=6.4.1",
         "yarn": ">=1.9.4"
     },
-    "homepage": "https://github.com/Chris Abraham/drinking-games",
+    "homepage": "https://github.com/chrisabra/DRINK",
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
@@ -51,7 +52,7 @@
         ],
         "exec": "node ./src/server/api.js"
     },
-    "repository": "Chris Abraham/drinking-games",
+    "repository": "chrisabra/DRINK",
     "scripts": {
         "build": "lwc-services build -m production",
         "build:development": "lwc-services build",

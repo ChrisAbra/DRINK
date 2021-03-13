@@ -1,0 +1,22 @@
+<template>
+    <div class="fade-in-slow">
+        <div class="header">
+            <div class="header-text">
+                At the table:
+            </div>
+            <div class="room-code code clickable" onclick={copyRoomCode}>
+                {roomCode}&#x1f4cb;
+            </div>
+        </div>
+
+        <div class="users-list">
+            <template for:each={lobbyMembers} for:item="lobbyMember" for:index="index">
+                <my-lobby-member user-info={userInfo} member-info={lobbyMember} key={lobbyMember.id} index={index}>
+                </my-lobby-member>
+            </template>
+        </div>
+    </div>
+
+
+
+</template>
