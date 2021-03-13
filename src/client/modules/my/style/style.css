@@ -1,0 +1,94 @@
+
+.center {
+    text-align: center;
+    color:#313131;
+    margin:auto;
+    max-width:700px;
+
+}
+
+.code {
+    font-family: monospace;
+}
+
+.banner-image {
+    max-width: 80%;
+    margin:auto;
+
+}
+
+h1 {
+    margin:5px;
+    font-size: 50px;
+    color: #00a2b1;
+
+}
+
+.page-icon {
+    width:80px;
+    display:inline-block;
+}
+
+
+.page-icon > img {
+    width:100%;
+    float:left;
+}
+
+.page-title {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left:10px;
+}
+
+
+
+.code {
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    font-weight:700;
+
+}
+
+
+.error {
+    color:rgb(202, 43, 43);
+}
+
+
+.fade-in {
+    opacity: 0.0;
+    animation: fadeIn ease 0.5s forwards;
+    -webkit-animation: fadeIn ease 0.5s forwards;
+}
+
+.fade-in-slow {
+    opacity: 0.0;
+    animation: fadeIn ease 1s forwards;
+    -webkit-animation: fadeIn ease 1s forwards;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }

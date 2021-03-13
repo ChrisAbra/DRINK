@@ -1,0 +1,13 @@
+<template>
+	<div class="input center">
+		<div class="label">
+			<label for="input">{label}</label>
+		</div>
+		<input class={cssClasses} name="input" type="text" placeholder={placeholder} maxlength={maxLength} onchange={sendNewValue} onkeyup={checkForEnter}>
+		<div if:true={errorMessage} class="error fade-in fade-in-slow">
+			:( {errorMessage}
+
+		</div>
+
+	</div>
+</template>

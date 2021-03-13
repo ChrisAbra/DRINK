@@ -1,0 +1,7 @@
+<template>
+	<my-input label="Enter the room code:" class-list="monospace code" placeholder='* * * *'
+		max-length="4" onnewvalue={joinCodeChanged} onenterpressed={joinEnteredRoom} error-message={error}></my-input>
+		
+	<my-button label="Join!" onselected={joinEnteredRoom}></my-button>
+
+</template>
