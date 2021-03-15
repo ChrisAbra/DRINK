@@ -1,19 +1,22 @@
 @import 'my/style';
 
 :host {
-    height: 100%;
-    width: 100%;
-    flex-grow: 1;
     padding: 0px 15px;
+    flex-grow: 1;
+    height: 100%;
+    width: 90%;
 }
+
 .header-text {
     display: inline-block;
     padding: 3px;
 }
+
 .room-code {
     float: right;
     cursor: pointer;
 }
+
 .user-list {
     margin-top: 10px;
     display: flex;

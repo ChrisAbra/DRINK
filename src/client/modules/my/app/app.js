@@ -11,12 +11,12 @@ const states = {
 };
 
 export default class App extends LightningElement {
-    currentRoomCode = 'C7NE';
+    currentRoomCode;
     currentGame;
 
     enteredRoomCode = '';
 
-    state = states.LOBBY;
+    state = states.HOME;
 
     get showHomeScreen() {
         return this.state == states.HOME;
@@ -41,17 +41,25 @@ export default class App extends LightningElement {
         return this.state != states.IN_GAME;
     }
 
+    get showGame() {
+        return this.state == states.IN_GAME;
+    }
+
     connectedCallback() {
         // read URL
+        let url = new URL(document.URL);
+        if (url.pathname.startsWith('/join')) {
+            this.attemptRoomJoin(url.searchParams.get('roomCode'));
+        }
     }
 
     createRoom() {
-        this.state = states.LOADING;
-        //this.state = states.LOBBY;
-        attemptRoomJoin();
+        this.attemptRoomJoin('8NE9');
     }
     showRoomSelector() {
-        //history.pushState({}, "Join Room", "/join")
+        history.pushState({}, "Join Room", "/join")
+        this.setHistory('Join Room', "/join/");
+
         this.state = states.JOIN_ROOM;
     }
 
@@ -65,23 +73,30 @@ export default class App extends LightningElement {
         // room connect ui dev:
         this.currentRoomCode = roomCode;
         setTimeout(() => {
+            this.setHistory('Join Room:' + this.currentRoomCode, "/join?roomCode=" + this.currentRoomCode);
             this.state = states.LOBBY;
         }, 1500);
-
-        // check server
-
-        //join room
-        //history.pushState({}, "Join Room", "/join/"  + roomCode)
-        //this.state = states.LOBBY;
     }
 
     alertMessage;
 
     handleAlertMessage(event) {
-        console.log('alert message');
         this.alertMessage = event.detail;
         setTimeout(() => {
             this.alertMessage = null;
         }, 2000);
+    }
+
+
+    setHistory(title, url) {
+        history.pushState({}, title, url);
+
+    }
+
+    handleSelectedGame(event) {
+        this.state = states.LOADING;
+        this.currentGame = event.detail;
+        this.state = states.IN_GAME;
+
     }
 }

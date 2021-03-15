@@ -1,0 +1,30 @@
+@import 'my/style';
+
+:host {
+	padding: 0px 15px;
+	height: 100%;
+	width: 90%;
+}
+
+.game-list {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	max-width: 400px;
+	margin: auto;
+}
+
+@media only screen and (min-width: 768px) {
+	.game-list {
+		max-width: 550px;
+
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+@media only screen and (min-width: 1080px) {
+	.game-list {
+		max-width: 700px;
+
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+}

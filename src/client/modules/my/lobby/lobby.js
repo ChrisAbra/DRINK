@@ -16,8 +16,7 @@ export default class Lobby extends LightningElement {
             color: '#ffc34d',
             self: true,
             id: '987uaiejkmfaef',
-            role: 'owner',
-            status: 'disconnected'
+            role: 'owner'
         };
         lobbyMembers.push(this.userInfo);
         lobbyMembers.push({

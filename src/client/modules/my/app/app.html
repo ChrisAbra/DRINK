@@ -3,7 +3,7 @@
 
         <div if:false={showHomeScreen} class="header fade-in">
             <div class="page-icon">
-                <img src="./resources/header-image.jpg" />
+                <img src="/resources/header-image.jpg" />
             </div>
             <div class="page-title">
                 <h1>
@@ -21,7 +21,7 @@
                     DRINK!
                 </h1>
                 <br>
-                <img class="banner-image" src="./resources/header-image.jpg" />
+                <img class="banner-image" src="/resources/header-image.jpg" />
 
                 <my-room-picker onjoin={showRoomSelector} oncreate={createRoom}></my-room-picker>
             </div>
@@ -36,12 +36,13 @@
 
 
             <my-lobby if:true={showLobby} room-code={currentRoomCode}></my-lobby>
+            <my-game-picker if:true={showLobby} onselectedgame={handleSelectedGame}></my-game-picker>
 
 
-
+            <my-game-container if:true={showGame} game={currentGame}></my-game-container>
 
             <div if:true={show404} class="center fade-in-slow">
-                <img class="banner-image" src="./resources/technical-difficulties.png"
+                <img class="banner-image" src="/resources/technical-difficulties.png"
                     style="transform: scalex(0.85);" />
                 <div>
                     <h3>
