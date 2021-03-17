@@ -59,6 +59,7 @@
     },
     "repository": "chrisabra/DRINK",
     "scripts": {
+        "start": "node scripts/server.js",
         "build": "lwc-services build -m production",
         "dev": "run-p build:development serve:client",
         "build:development": "lwc-services build",
