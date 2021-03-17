@@ -94,7 +94,7 @@ const database = {
             members: [userInfo],
             createdDate: new Date().toISOString().substring(0, 10)
         }
-
+        socket.join(roomCode);
         await database.rooms.asyncInsert(roomInfo);
         return roomInfo;
 
