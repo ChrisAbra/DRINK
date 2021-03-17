@@ -4,12 +4,20 @@ export default class Lobby extends LightningElement {
     @api
     roomCode;
 
+    @api
     userInfo;
+    @api
+    roomInfo
+
     lobbyMembers;
 
     copiedCode = false;
 
     connectedCallback() {
+
+        this.lobbyMembers = this.roomInfo.members;
+
+        /*
         let lobbyMembers = [];
         this.userInfo = {
             name: 'Chris',
@@ -38,7 +46,7 @@ export default class Lobby extends LightningElement {
             id: '98aunoefaefa'
         });
 
-        this.lobbyMembers = lobbyMembers;
+        */
     }
 
     copyRoomCode(event) {

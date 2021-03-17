@@ -9,7 +9,8 @@
         "express": "^4.17.1",
         "helmet": "^4.4.1",
         "nedb-async": "^0.1.6",
-        "package.json": "^2.0.1"
+        "package.json": "^2.0.1",
+        "socket.io": "^4.0.0"
     },
     "devDependencies": {
         "eslint": "^7.22.0",
@@ -44,31 +45,35 @@
     },
     "nodemonConfig": {
         "watch": [
-            "scripts/*.js"
+            "scripts/server.js",
+            "src/client/**/*"
         ],
-        "ext": "js",
+        "ext": "js html css",
         "ignore": [
             "src/**/*.spec.js",
             "src/**/*.test.js"
         ],
-        "exec": "node ./scripts/server.js"
+        "events": {
+            "start": "npm run build"
+        }
     },
     "repository": "chrisabra/DRINK",
     "scripts": {
         "build": "lwc-services build -m production",
+        "dev": "run-p build:development serve:client",
         "build:development": "lwc-services build",
         "lint": "eslint ./src/**/*.js",
         "prettier": "prettier --write \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
         "prettier:verify": "prettier --list-different \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
         "serve": "run-p serve:client serve:api",
         "serve:api": "node src/server/api.js",
-        "serve:client": "node scripts/server.js",
+        "serve:client": "nodemon scripts/server.js",
         "test:unit": "lwc-services test:unit",
         "test:unit:coverage": "lwc-services test:unit --coverage",
         "test:unit:debug": "lwc-services test:unit --debug",
         "test:unit:watch": "lwc-services test:unit --watch",
         "watch": "run-p watch:client watch:server",
-        "watch:client": "lwc-services watch -o",
+        "watch:client": "lwc-services watch",
         "watch:server": "nodemon"
     }
 }

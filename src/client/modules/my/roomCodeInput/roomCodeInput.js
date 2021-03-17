@@ -19,6 +19,7 @@ export default class RoomCodeInput extends LightningElement {
 			this.error = this.errorMessage;
 		}
 		else {
+			this.enteredRoomCode = this.enteredRoomCode.toUpperCase();
 			const changeEvent = new CustomEvent('joinroom', { detail: this.enteredRoomCode });
 			this.dispatchEvent(changeEvent);
 		}

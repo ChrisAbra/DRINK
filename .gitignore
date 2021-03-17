@@ -19,6 +19,8 @@ node_modules
 # Jest coverage folder
 /coverage
 
+/data
+
 # MacOS system files
 .DS_Store
 

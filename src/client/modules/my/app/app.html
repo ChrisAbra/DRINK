@@ -1,7 +1,16 @@
 <template>
-    <div class="app" onalertmessage={handleAlertMessage}>
+    <div if:true={pageError} class="app fade-in">
+        <div class="page-title">
+            Uh-oh...
+        </div>
+        <img class="banner-image" src="/resources/technical-difficulties.png" />
+        <div class="center">
+            {pageError}
+        </div>
+    </div>
+    <div class="app" onalertmessage={handleAlertMessage} if:false={pageError}>
 
-        <div if:false={showHomeScreen} class="header fade-in">
+        <div if:false={showHomeScreen} class="header fade-in clickable" onclick={goToHome}>
             <div class="page-icon">
                 <img src="/resources/header-image.jpg" />
             </div>
@@ -15,7 +24,7 @@
 
 
 
-        <div class="content">
+        <div class="content" if:true={userInfo}>
             <div if:true={showHomeScreen} class="center fade-in-slow">
                 <h1>
                     DRINK!
@@ -24,18 +33,19 @@
                 <img class="banner-image" src="/resources/header-image.jpg" />
 
                 <my-room-picker onjoin={showRoomSelector} oncreate={createRoom}></my-room-picker>
+                <my-button color="red" label="Change name" onselected={clearUserInfo}></my-button>
             </div>
 
 
-            <div if:true={showRoomJoin} class="center room-join fade-in">
+
+            <div if:true={showRoomJoin} class="center fade-in">
                 <my-room-code-input onjoinroom={handleRoomJoinEvent}
                     error-message=':s Drunk already? Room codes are 4 characters long with no spaces'>
                 </my-room-code-input>
             </div>
 
-
-
-            <my-lobby if:true={showLobby} room-code={currentRoomCode}></my-lobby>
+            <my-lobby if:true={showLobby} room-code={roomInfo.roomCode} room-info={roomInfo} user-info={userInfo}>
+            </my-lobby>
             <my-game-picker if:true={showLobby} onselectedgame={handleSelectedGame}></my-game-picker>
 
 
@@ -55,6 +65,22 @@
                 <my-loading-icon></my-loading-icon>
             </div>
 
+        </div>
+        <div class="content" if:false={userInfo}>
+            <div class="center fade-in">
+                <h1>
+                    DRINK!
+                </h1>
+                <br>
+                <img class="banner-image" src="/resources/header-image.jpg" />
+
+            </div>
+
+            <div class="center fade-in" style="width: 80%; margin-top:0px">
+                <my-input label="Id mate:" class-list="" placeholder='Enter name here' onnewvalue={nameChanged}
+                    onenterpressed={nameConfrimed} error-message={error}></my-input>
+                <my-button label="Confirm" onselected={nameConfrimed}></my-button>
+            </div>
         </div>
         <div if:true={showFooter} class="footer">
 

@@ -1,4 +1,4 @@
-@import 'my/style';
+@import 'imports/style';
 
 
 .app {
@@ -9,6 +9,11 @@
 
 .header {
     padding: 10px;
+}
+
+.header.clickable:hover {
+    transform: translatex(-10px);
+
 }
 
 .content {

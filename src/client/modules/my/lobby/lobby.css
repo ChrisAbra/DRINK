@@ -1,9 +1,8 @@
-@import 'my/style';
+@import 'imports/style';
 
 :host {
     padding: 0px 15px;
     flex-grow: 1;
-    height: 100%;
     width: 90%;
 }
 

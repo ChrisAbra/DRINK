@@ -1,4 +1,4 @@
-@import 'my/style';
+@import 'imports/style';
 
 :host {
 	padding: 0px 15px;

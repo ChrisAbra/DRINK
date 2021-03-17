@@ -9,9 +9,6 @@ export default class LobbyMember extends LightningElement {
 
     @api
     index;
-    get canKick() {
-        return (this.userInfo.role == 'owner') & (this.memberInfo.self != true);
-    }
 
     show = false;
     connectedCallback() {
@@ -29,5 +26,5 @@ export default class LobbyMember extends LightningElement {
         return this.memberInfo.status == 'disconnected';
     }
 
-    removeUser() {}
+    removeUser() { }
 }
