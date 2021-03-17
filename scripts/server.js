@@ -94,7 +94,6 @@ const database = {
             members: [userInfo],
             createdDate: new Date().toISOString().substring(0, 10)
         }
-        socket.join(roomCode);
         await database.rooms.asyncInsert(roomInfo);
         return roomInfo;
 
@@ -109,6 +108,10 @@ io.on('connection', (socket) => {
 
     socket.on('create', async (userInfo) => {
         let roomInfo = await database.createRoom(userInfo);
+        roomInfo = await database.joinToRoom(socket, {
+            roomCode: roomInfo.roomCode,
+            userInfo: roomInfo.members[0]
+        });
         socket.emit('joinsuccess', roomInfo);
 
     });
