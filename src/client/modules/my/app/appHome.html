@@ -1,0 +1,45 @@
+<template>
+	<div if:true={pageError} class="app fade-in">
+		<img class="banner-image" src="/resources/technical-difficulties.png" />
+		<div class="center">
+			{pageError}
+		</div>
+	</div>
+	<div class="app" onalertmessage={handleAlertMessage} if:false={pageError}>
+
+		<div class="content" if:true={userInfo}>
+			<div if:true={showHomeScreen} class="center fade-in-slow">
+				<h1>
+					DRINK!
+				</h1>
+				<br>
+				<img class="banner-image" src="/resources/header-image.jpg" />
+
+				<my-room-picker onjoin={showRoomSelector} oncreate={createRoom}></my-room-picker>
+				<my-button color="red" label="Change name" onselected={clearUserInfo}></my-button>
+			</div>
+
+			<div if:true={show404} class="center fade-in-slow">
+				<img class="banner-image" src="/resources/technical-difficulties.png"
+					style="transform: scalex(0.85);" />
+				<div>
+					<h3>
+						We still haven't found what you're looking for
+					</h3>
+				</div>
+			</div>
+
+			<div if:true={showLoading} class="center fade-in-slow">
+				<my-loading-icon></my-loading-icon>
+			</div>
+
+		</div>
+
+		<div if:true={alertMessage} class="alert info">
+			{alertMessage}
+		</div>
+
+	</div>
+
+
+</template>

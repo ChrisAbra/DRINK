@@ -1,5 +1,8 @@
 import { LightningElement, track } from 'lwc';
 import { io } from 'imports/io';
+import appHome from './appHome.html'
+import appRoom from './appRoom.html'
+import appGetName from './appGetName.html'
 
 const states = {
     HOME: 1,
@@ -53,6 +56,18 @@ export default class App extends LightningElement {
         return this.state == states.IN_GAME;
     }
 
+    render() {
+        if (!this.userInfo) {
+            return appGetName;
+        }
+        if (this.state == states.HOME) {
+            return appHome;
+        }
+        else {
+            return appRoom;
+        }
+    }
+
 
     connectedCallback() {
         // read URL
@@ -97,6 +112,7 @@ export default class App extends LightningElement {
                 }
             }
             else {
+                this.setHistory('Room missing', '/');
                 this.pageError = 'This room doesnt exist...'
             }
         })
@@ -123,7 +139,6 @@ export default class App extends LightningElement {
     showRoomSelector() {
         history.pushState({}, "Join Room", "/join")
         this.setHistory('Join Room', "/join/");
-
         this.state = states.JOIN_ROOM;
     }
 
@@ -161,19 +176,25 @@ export default class App extends LightningElement {
 
     }
 
-    nameChanged(event) {
-        console.log(event.detail);
-        this.userName = event.detail;
-    }
 
     goToHome() {
         window.location.href = '/';
+    }
+
+
+
+
+    /* #region  Handle Name and User input */
+    nameChanged(event) {
+        console.log(event.detail);
+        this.userName = event.detail;
     }
 
     clearUserInfo(event) {
         this.userInfo = null;
         localStorage.clear('userInfo');
     }
+
 
     nameConfrimed(event) {
         let userInfo = {
@@ -195,4 +216,5 @@ export default class App extends LightningElement {
         return result;
     }
 
+    /* #endregion */
 }

@@ -1,0 +1,37 @@
+<template>
+	<div if:true={pageError} class="app fade-in">
+		<img class="banner-image" src="/resources/technical-difficulties.png" />
+		<div class="center">
+			{pageError}
+		</div>
+	</div>
+	<div class="app" onalertmessage={handleAlertMessage} if:false={pageError}>
+
+		<div class="content">
+			<div class="center fade-in">
+				<h1>
+					DRINK!
+				</h1>
+				<br>
+				<img class="banner-image" src="/resources/header-image.jpg" />
+
+			</div>
+
+			<div class="center fade-in" style="width: 80%; margin-top:0px">
+				<my-input label="Id mate:" class-list="" placeholder='Enter name here' onnewvalue={nameChanged}
+					onenterpressed={nameConfrimed} error-message={error}></my-input>
+				<my-button label="Confirm" onselected={nameConfrimed}></my-button>
+			</div>
+		</div>
+		<div if:true={showFooter} class="footer">
+
+		</div>
+
+		<div if:true={alertMessage} class="alert info">
+			{alertMessage}
+		</div>
+
+	</div>
+
+
+</template>

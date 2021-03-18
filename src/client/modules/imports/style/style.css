@@ -1,8 +1,42 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    padding: 10px;
+}
+
+.header.clickable:hover {
+    transform: translatex(-10px);
+
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    color: #4f4f4f;
+    max-width: 700px;
+    margin: auto;
+
+}
+
+
+.footer {
+    height: 30px;
+}
+
 .center {
     text-align: center;
     margin: auto;
     max-width: 700px;
 }
+
 .code {
     font-family: monospace;
 }
@@ -23,7 +57,7 @@ h1 {
     display: inline-block;
 }
 
-.page-icon > img {
+.page-icon>img {
     width: 100%;
     float: left;
 }
@@ -96,6 +130,7 @@ h1 {
         transform: translatex(0px);
         opacity: 1;
     }
+
     100% {
         transform: translatey(-30px);
         opacity: 0;
@@ -165,6 +200,7 @@ h1 {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -174,6 +210,7 @@ h1 {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -183,6 +220,7 @@ h1 {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -192,6 +230,7 @@ h1 {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -201,6 +240,7 @@ h1 {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
